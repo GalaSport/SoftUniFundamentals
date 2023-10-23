@@ -13,7 +13,7 @@ function taxCalculator(array){
         for (let i = 0; i < years; i++){
         total -= 5;  
         }
-        for (let i = 1; i < (km / 3000); i++) {
+        for (let i = 1; i <= (km / 3000); i++) {
            total += 12  
         }
         console.log(`A ${type} car will pay ${total.toFixed(2)} euros in taxes.`);
@@ -23,7 +23,7 @@ function taxCalculator(array){
         for (let i = 0; i < years; i++){
         total -= 8;  
         }
-        for (let i = 1; i < (km / 9000); i++) {
+        for (let i = 1; i <= (km / 9000); i++) {
            total += 14  
         }
         console.log(`A ${type} car will pay ${total.toFixed(2)} euros in taxes.`);
@@ -33,7 +33,7 @@ function taxCalculator(array){
         for (let i = 0; i < years; i++){
         total -= 9;  
         }
-        for (let i = 1; i < (km / 2000); i++) {
+        for (let i = 1; i <= (km / 2000); i++) {
            total += 18  
         }
         console.log(`A ${type} car will pay ${total.toFixed(2)} euros in taxes.`);

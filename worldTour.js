@@ -1,27 +1,33 @@
 function worldTour(array) {
-    let firstArray = array.shift().split('');
+    let firstArray = array.shift();
 
     for (let command of array) {
-        if (command.includes("Add")) {
+        if (command.includes("Add Stop")) {
             let tokens = command.split(":");
             let index = Number(tokens[1]);
             let destination = tokens[2];
-        if(index < 0 || index > firstArray.length){ 
+        if(index < 0 || index > firstArray.length - 1){ 
+            console.log(firstArray);
             continue;
             }else{
-            firstArray.splice(index, 0, destination);
-            console.log(firstArray.join(""));
+            let left = firstArray.slice(0, index);
+            let right = firstArray.slice(index);
+           firstArray = left + destination + right;
+           console.log(firstArray);
+
         }
-        } else if (command.includes("Remove")) {
+        } else if (command.includes("Remove Stop")) {
             let tokens = command.split(":");
             let startIndex = Number(tokens[1]);
             let endIndex = Number(tokens[2]);
-            if(startIndex < 0 || endIndex > firstArray.length){
+            if(startIndex < 0 || endIndex > firstArray.length - 1 || startIndex > endIndex){
+                console.log(firstArray);
                 continue;
             }else{
-            let newString = firstArray.join("").substring(0, startIndex) + firstArray.join("").substring(endIndex + 1);
-            firstArray = newString;
-            console.log(newString);
+            let leftHalf = firstArray.slice(0, startIndex);
+            let rightHalf = firstArray.slice(endIndex + 1);
+            firstArray = leftHalf + rightHalf;
+                console.log(firstArray);
             }
         } else if (command.includes("Switch")) {
             let tokens = command.split(":");
